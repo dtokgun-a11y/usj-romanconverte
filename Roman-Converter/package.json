@@ -1,12 +1,13 @@
 {
-  "name": "roman-converter",
+  "name": "usj-romanconverte",
   "version": "1.0.0",
-  "description": "Roman numeral converter",
+  "description": "A Roman numeral converter",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'Testing...' && exit 0",
-    "lint": "echo 'Linting...'"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"No linter configured\""
   },
+  "keywords": [],
   "author": "",
   "license": "ISC"
 }
