@@ -1,11 +1,16 @@
-name: Simple CI
+name: Roman Converter CD
 
 on:
   push:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  build:
+  build-test-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,8 +22,22 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies (skip if none)
+      - name: Install dependencies
         run: npm install || true
 
-      - name: Build step (optional)
-        run: echo "Build completed"
+      - name: Run linter
+        run: npm run lint --if-present
+
+      - name: Run tests
+        run: npm test --if-present
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
