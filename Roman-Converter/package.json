@@ -1,0 +1,12 @@
+{
+  "name": "roman-converter",
+  "version": "1.0.0",
+  "description": "Roman numeral converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Testing...' && exit 0",
+    "lint": "echo 'Linting...'"
+  },
+  "author": "",
+  "license": "ISC"
+}
